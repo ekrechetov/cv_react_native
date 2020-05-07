@@ -1,18 +1,19 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { Colors, Typography } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
 
- const HardSkills = () => {
+const HardSkills = () => {
 
   return (
-    <SafeAreaView  style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-      <Text style={{...Typography.headTitle}}>My hard skills</Text>
+      <Text style={{ ...Typography.headTitle }}>My hard skills</Text>
 
-      <Button title={'next'}
-              onPress={() => NavigationService.goBack()}
+      <Button
+        title={'next'}
+        onPress={() => NavigationService.goBack()}
       />
 
     </SafeAreaView >
@@ -31,4 +32,4 @@ const styles = StyleSheet.create({
     paddingBottom:26,
   },
 })
-export default HardSkills;
+export default HardSkills

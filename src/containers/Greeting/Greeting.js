@@ -4,17 +4,17 @@ import { Colors, Typography } from '../../styles'
 import Avatar from '../../components/Avatar'
 import Button from '../../components/Button'
 
- const Greeting = ({navigation}) => {
+const Greeting = ({ navigation }) => {
 
   return (
-    <SafeAreaView  style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-      <Text style={{...Typography.headTitle}}>React-native</Text>
+      <Text style={{ ...Typography.headTitle }}>React-native</Text>
 
       <Avatar />
 
-      <View style={{alignItems: 'center'}}>
-        <Text style={{...Typography.title, marginBottom: 15, color: 'black'}}>
+      <View style={{ alignItems: 'center' }}>
+        <Text style={{ ...Typography.title, marginBottom: 15, color: 'black' }}>
           Yevhenii Krechetov
         </Text>
         <Text style={Typography.subTitle}>
@@ -22,17 +22,18 @@ import Button from '../../components/Button'
         </Text>
       </View>
 
-      <View style={{alignItems: 'center'}}>
-        <Text style={{...Typography.title, marginBottom: 15,}}>
+      <View style={{ alignItems: 'center' }}>
+        <Text style={{ ...Typography.title, marginBottom: 15 }}>
           C V
         </Text>
-        <Text style={{...Typography.subTitle, color: 'white'}}>
+        <Text style={{ ...Typography.subTitle, color: 'white' }}>
           like react-native app
         </Text>
       </View>
 
-      <Button title={'start review'}
-              onPress={() => navigation.navigate('HardSkills')}
+      <Button
+        title={'start review'}
+        onPress={() => navigation.navigate('HardSkills')}
       />
 
     </SafeAreaView >
@@ -51,4 +52,4 @@ const styles = StyleSheet.create({
     paddingBottom:26,
   },
 })
-export default Greeting;
+export default Greeting

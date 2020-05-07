@@ -26,8 +26,8 @@ function navigateAndReset(routeName) {
         routes: [
           { name: routeName },
         ],
-      })
-    );
+      }),
+    )
   }
 }
 

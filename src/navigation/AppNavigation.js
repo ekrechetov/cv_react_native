@@ -14,8 +14,9 @@ const Switch = (
   </Stack.Navigator>
 )
 
-export default () => (
+const AppNavigation = () => (
   <NavigationContainer ref={NavigationService.setTopLevelNavigator}>
     {Switch}
   </NavigationContainer>
 )
+export default AppNavigation
