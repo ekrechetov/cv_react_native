@@ -6,7 +6,7 @@ import AppNavigation from './src/navigation/AppNavigation'
 
 const App = () => {
 
-  const [isFontsLoaded] = useFonts({
+  const [ isFontsLoaded ] = useFonts({
     'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.otf'),
     'Montserrat-Bold': require('./assets/fonts/Montserrat-Bold.otf'),
     'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.otf'),
@@ -21,4 +21,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

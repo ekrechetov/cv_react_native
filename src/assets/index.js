@@ -1,3 +1,3 @@
 export default {
-  foto: require('./images/foto.jpg')
+  foto: require('./images/foto.jpg'),
 }

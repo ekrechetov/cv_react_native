@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
@@ -13,7 +14,6 @@
     "@react-navigation/stack": "^5.2.19",
     "@use-expo/font": "^2.0.0",
     "expo": "^37.0.8",
-    "expo-react-native-shadow": "^1.0.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "0.61.5",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "@react-native-community/eslint-config": "^0.0.5",
+    "babel-eslint": "^10.1.0",
     "babel-preset-expo": "~8.1.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.11.0",
@@ -37,7 +38,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "eslint-plugin-standard": "^4.0.1",
-    "prettier": "^2.0.5"
+    "prettier": "2.0.5"
   },
   "private": true
 }
