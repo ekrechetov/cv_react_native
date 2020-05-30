@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.cadetblue,
     opacity: 0.7,
     height: 2,
+    width: '100%',
   },
 })

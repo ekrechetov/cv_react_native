@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 50,
     borderRadius: 5,
-    marginTop: 26,
     //shadow:
     shadowColor: '#000',
     shadowOffset: {
