@@ -7,6 +7,9 @@ import AboutScreen from '../containers/About'
 import HardSkillsScreen from '../containers/HardSkills'
 import PortfolioScreen from '../containers/Portfolio'
 import ExperienceScreen from '../containers/Experience'
+import EducationScreen from '../containers/Education'
+import SoftSkillsScreen from '../containers/SoftSkills'
+import ContactsScreen from '../containers/Contacts'
 
 const Stack = createStackNavigator()
 
@@ -17,6 +20,9 @@ const Switch = (
     <Stack.Screen name="HardSkills" component={HardSkillsScreen}/>
     <Stack.Screen name="Portfolio" component={PortfolioScreen}/>
     <Stack.Screen name="Experience" component={ExperienceScreen}/>
+    <Stack.Screen name="Education" component={EducationScreen}/>
+    <Stack.Screen name="SoftSkills" component={SoftSkillsScreen}/>
+    <Stack.Screen name="Contacts" component={ContactsScreen}/>
   </Stack.Navigator>
 )
 

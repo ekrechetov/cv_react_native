@@ -7,4 +7,10 @@ export default {
   pokemon: require('./images/pokemon.png'),
   forkio: require('./images/forkio.png'),
   ham: require('./images/ham.png'),
+  phone: require('./icons/ic_phone.png'),
+  email: require('./icons/ic_email.png'),
+  git: require('./icons/ic_git.png'),
+  linkedIn: require('./icons/ic_linkedin.png'),
+  map: require('./icons/ic_map.png'),
+  menu: require('./icons/ic_menu.png'),
 }

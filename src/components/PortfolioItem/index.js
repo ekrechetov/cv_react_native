@@ -20,7 +20,7 @@ const PortfolioItem = ({ project }) => {
         </Text>
         <Image
           source={ project.source }
-          style={{ width: '100%', height: 120, marginBottom: 15 }}
+          style={{ height: 120, marginBottom: 15, resizeMode: 'cover', width: '100%' }}
         />
       </TouchableOpacity>
 
@@ -40,7 +40,6 @@ export default PortfolioItem
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'space-between',
     paddingBottom: 26,
   },
   title: {

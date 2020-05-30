@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { Colors, Typography } from '../../styles'
+import { Colors, Typography, Styles } from '../../styles'
 import Avatar from '../../components/Avatar'
 import Button from '../../components/Button'
 import Slider from '../../components/Slider'
@@ -65,7 +65,7 @@ const Greeting = ({ navigation }) => {
 
       <Slider screens={ screens }/>
 
-      <View style={{ paddingHorizontal: 20, width: '100%' }}>
+      <View style={{ paddingHorizontal: 20, width: '100%', maxWidth: 600 }}>
         <Button
           title={'start review'}
           onPress={() => navigation.navigate('About')}
@@ -75,15 +75,13 @@ const Greeting = ({ navigation }) => {
     </SafeAreaView >
   )
 }
+export default Greeting
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: Colors.teal,
-    alignItems: 'center',
+    ...Styles.container,
     justifyContent: 'space-between',
-    paddingTop: 26,
+    paddingTop: 36,
     paddingBottom: 26,
   },
 })
-export default Greeting

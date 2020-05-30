@@ -5,56 +5,50 @@ import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
 import AppBar from '../../components/AppBar'
 
-const HardSkills = () => {
+const SoftSkills = () => {
 
   return (
     <SafeAreaView style={styles.container}>
 
       <AppBar
-        headLineText="Technical skills"
+        headLineText="Soft Skills"
       />
       <View style={styles.content}>
         <View>
           <Text style={Typography.text}>
-            - HTML5, CSS3, SASS (SCSS)
+            - Communicative, problem solver (closely collaborated with the team to maintain workflow,  solve actual tasks)
           </Text>
           <Text style={Typography.text}>
-            - Responsive web design
+            - Very persistent and driven
           </Text>
           <Text style={Typography.text}>
-            - JavaScript (ES5, ES6)
+            - Always strive to complete the task and achieve the result
           </Text>
           <Text style={Typography.text}>
-            - React (with Hooks)
+            - The desire constantly to improve professionally
           </Text>
           <Text style={Typography.text}>
-            - Redux, React Context
+            - Active position in working and social life
           </Text>
           <Text style={Typography.text}>
-            - React-native
+            - Engagement  in company life
           </Text>
-          <Text style={Typography.text}>
-            - NPM, basic Node.js, Express
+          <Text style={styles.title}>
+            LANGUAGES:
           </Text>
-          <Text style={Typography.text}>
-            - Experience with REST API, MySql, MongoDB
+          <Text style={styles.text}>
+            - English (pre intermediate)
           </Text>
-          <Text style={Typography.text}>
-            - XMLHttpRequest, AJAX
+          <Text style={styles.text}>
+            - Ukrainian
           </Text>
-          <Text style={Typography.text}>
-            - Gulp build system
-          </Text>
-          <Text style={Typography.text}>
-            - Git version-control system
-          </Text>
-          <Text style={Typography.text}>
-            - Experience with SCRUM methodology, working with Trello
+          <Text style={styles.text}>
+            - Russian
           </Text>
         </View>
         <Button
           title={'next'}
-          onPress={() => NavigationService.navigate('Portfolio')}
+          onPress={() => NavigationService.navigate('Contacts')}
         />
       </View>
     </SafeAreaView >
@@ -68,5 +62,15 @@ const styles = StyleSheet.create({
   content: {
     ...Styles.content,
   },
+  title: {
+    ...Typography.text,
+    fontWeight: '700',
+    fontSize: 20,
+    width: '100%',
+    marginTop: 10,
+  },
+  text: {
+    ...Typography.text,
+  },
 })
-export default HardSkills
+export default SoftSkills
