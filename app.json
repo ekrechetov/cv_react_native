@@ -8,7 +8,7 @@
       "web"
     ],
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -26,6 +26,7 @@
     },
     "description": "CV like React-Native App",
     "icon": "./src/assets/icons/ic_settings.png",
-    "githubUrl": "https://github.com/ekrechetov/cv_react_native"
+    "githubUrl": "https://github.com/ekrechetov/cv_react_native",
+    "privacy": "public"
   }
 }
