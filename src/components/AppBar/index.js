@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { Typography, Colors } from '../../styles'
 import ASSETS from '../../assets'
 import IconButton from '../IconButton'
 import NavigationService from '../../navigation/NavigationService'
-
+import DropdownMenu from '../DropdownMenu'
 
 const AppBar = (props) => {
+
+  const [ isMenuOpen, setMenuVisibility ] = useState(false)
 
   const onBack = () => {
     NavigationService.goBack()
   }
 
-  const onSettings = () => {
-    console.log('Click')
+  const toggleMenu = () => {
+    setMenuVisibility(!isMenuOpen)
   }
 
   return (
@@ -32,10 +34,12 @@ const AppBar = (props) => {
       <IconButton
         source={ASSETS.menu}
         imageStyle={{ width: 24, height: 24 }}
-        onPress={onSettings}
+        onPress={toggleMenu}
       />
-    </View>
 
+      <DropdownMenu toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+
+    </View>
   )
 }
 
