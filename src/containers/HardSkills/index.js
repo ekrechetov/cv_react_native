@@ -16,16 +16,19 @@ const HardSkills = () => {
       <View style={styles.content}>
         <View>
           <Text style={Typography.text}>
-            - HTML5, CSS3, SASS (SCSS)
+            - Mobile application development
           </Text>
           <Text style={Typography.text}>
-            - Responsive web design
+            - Web development
+          </Text>
+          <Text style={Typography.text}>
+            - HTML5, CSS3, SASS (SCSS)
           </Text>
           <Text style={Typography.text}>
             - JavaScript (ES5, ES6)
           </Text>
           <Text style={Typography.text}>
-            - React (with Hooks)
+            - React, React Hooks
           </Text>
           <Text style={Typography.text}>
             - Redux, React Context
@@ -37,7 +40,7 @@ const HardSkills = () => {
             - NPM, basic Node.js, Express
           </Text>
           <Text style={Typography.text}>
-            - Experience with REST API, MySql, MongoDB
+            - REST API, experience with MySql, MongoDB
           </Text>
           <Text style={Typography.text}>
             - XMLHttpRequest, AJAX

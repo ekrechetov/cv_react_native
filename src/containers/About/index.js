@@ -18,8 +18,7 @@ const About = () => {
         <Text style={Typography.text}>
           Frontend developer, focused on creating interactive, responsive and
           fast web and mobile applications with high usability. Developed several practical
-          projects using HTML5, CSS3, JS,
-           SASS (SCSS) and responsive design
+          projects using HTML5, CSS3, Java Script, SASS (SCSS) and responsive design
           approach, including a project online e-shop using Node.js, Express,
           MongoDB, React (with Redux). Passionate about improving native JS and
           React skills, putting ideas into digital form and get real results.

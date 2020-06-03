@@ -24,7 +24,8 @@
       "package": "com.kiiga89mf.krechetov",
       "versionCode": 1
     },
-    "description": "CV",
-    "icon": "./src/assets/icons/ic_settings.png"
+    "description": "CV like React-Native App",
+    "icon": "./src/assets/icons/ic_settings.png",
+    "githubUrl": "https://github.com/ekrechetov/cv_react_native"
   }
 }
