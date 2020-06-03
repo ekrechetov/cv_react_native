@@ -1,38 +1,45 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import { Typography, Colors } from '../../styles'
-import NavigationService from '../../navigation/NavigationService'
+import { StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
+import { Colors } from '../../styles'
 import FadeInView from '../FadeInView'
+import { menuItems } from '../../assets/menuItems'
+import MenuItem from '../MenuItem'
 
 const DropdownMenu = (props) => {
 
-  const navigateTo = (routeName) => {
-    NavigationService.navigate(routeName)
-    props.toggleMenu()
-  }
-
   return (
-    <FadeInView
-      isMenuOpen={props.isMenuOpen}
-      style={styles.dropdownMenu}
-    >
-      <Text onPress={() => navigateTo('Greeting')} style={styles.text}>Home</Text>
-      <Text onPress={() => navigateTo('About')} style={styles.text}>About me</Text>
-      <Text onPress={() => navigateTo('HardSkills')} style={styles.text}>Technical skills</Text>
-      <Text onPress={() => navigateTo('Portfolio')} style={styles.text}>Portfolio</Text>
-      <Text onPress={() => navigateTo('Experience')} style={styles.text}>Experience</Text>
-      <Text onPress={() => navigateTo('Education')} style={styles.text}>Education</Text>
-      <Text onPress={() => navigateTo('SoftSkills')} style={styles.text}>Soft Skills</Text>
-      <Text onPress={() => navigateTo('Contacts')} style={styles.text}>Contacts</Text>
-    </FadeInView>
+    <>
+      <FadeInView
+        isMenuOpen={props.isMenuOpen}
+        style={styles.dropdownMenu}
+      >
+        {
+          menuItems.map((item) =>
+            <MenuItem
+              key={item.id}
+              text={item.text}
+              routeName={item.routeName}
+              toggleMenu={props.toggleMenu}
+            />,
+          )
+        }
+      </FadeInView>
+
+      <TouchableOpacity
+        style={[ styles.modal, props.isMenuOpen && { height: Dimensions.get('window').height } ]}
+        onPress={() => { props.toggleMenu() }}
+      />
+    </>
   )
 }
 export default DropdownMenu
 
 const styles = StyleSheet.create({
-  text: {
-    ...Typography.text,
-    marginVertical: 6,
+  modal: {
+    position: 'absolute',
+    width: Dimensions.get('window').width,
+    top: -40,
+    zIndex: 4,
   },
   dropdownMenu: {
     position: 'absolute',

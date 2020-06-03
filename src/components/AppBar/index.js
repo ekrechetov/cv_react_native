@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Platform } from 'react-native'
 import { Typography, Colors } from '../../styles'
 import ASSETS from '../../assets'
 import IconButton from '../IconButton'
@@ -19,7 +19,7 @@ const AppBar = (props) => {
   }
 
   return (
-    <View style={ styles.container }>
+    <View style={[ styles.container, Platform.OS === 'ios' ? { zIndex: 10 } : null ]}>
 
       <IconButton
         source={ASSETS.back}
@@ -54,5 +54,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 15,
     paddingHorizontal: 20,
+    // zIndex: 20,
+    // Platform.OS === 'ios' ? { zIndex: 20 } : null,
   },
 })
