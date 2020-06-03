@@ -1,15 +1,12 @@
 import React from 'react'
-import { StyleSheet, TouchableHighlight, View, Image } from 'react-native'
-import { Colors } from '../../styles'
+import { StyleSheet, TouchableOpacity, View, Image } from 'react-native'
 
 const IconButton = (props) => {
 
   const { source, imageStyle, onPress } = props
 
   return (
-    <TouchableHighlight
-      activeOpacity={0.5}
-      underlayColor={Colors.mediumturquoise}
+    <TouchableOpacity
       style={styles.container}
       onPress={onPress}
     >
@@ -19,7 +16,7 @@ const IconButton = (props) => {
           style={imageStyle}
         />
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   )
 }
 
