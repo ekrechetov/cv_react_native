@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, Dimensions } from 'react-native'
 import NavigationService from '../../navigation/NavigationService'
 import { Typography } from '../../styles'
 
@@ -12,7 +12,7 @@ const MenuItem = (props) => {
 
   return (
     <TouchableOpacity onPress={() => navigateTo(props.routeName)}>
-      <Text style={styles.text}>
+      <Text style={[ styles.text, { marginVertical: Dimensions.get("screen").height < 400 ? 2 : 6 } ]}>
         {props.text}
       </Text>
     </TouchableOpacity>
@@ -26,6 +26,5 @@ const styles = StyleSheet.create({
   },
   text: {
     ...Typography.text,
-    marginVertical: 6,
   },
 })

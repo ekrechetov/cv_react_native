@@ -6,12 +6,9 @@ export const container = {
   backgroundColor: Colors.teal,
 }
 
-export const content = {
-  flex: 1,
-  width: '100%',
-  justifyContent: 'space-between',
-  paddingLeft: 20,
-  paddingRight: 20,
-  paddingBottom: 26,
+export const contentContainer = {
+  paddingHorizontal: 20,
   maxWidth: 600,
+  justifyContent: 'space-between',
+  alignItems: 'center',
 }

@@ -10,11 +10,14 @@ const Button = ({ title, onPress, buttonStyle = styles.container, textStyle = st
     </TouchableOpacity>
   )
 }
+export default Button
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    maxWidth: 340,
     padding: 12,
+    marginVertical: 26,
     backgroundColor: Colors.mediumturquoise,
     alignItems: 'center',
     justifyContent: 'center',
@@ -34,5 +37,3 @@ const styles = StyleSheet.create({
     ...Typography.btnText,
   },
 })
-
-export default Button

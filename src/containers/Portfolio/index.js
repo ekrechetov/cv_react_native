@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, SafeAreaView, StyleSheet, View } from 'react-native'
+import { ScrollView, SafeAreaView, StyleSheet } from 'react-native'
 import { Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
@@ -19,21 +19,20 @@ const Portfolio = () => {
 
       <HrLine />
 
-      <ScrollView contentContainerStyle={styles.content}>
-        <View>
-          {
-            projects.map((item, index) =>
-              <PortfolioItem key={index} project={item} />,
-            )
-          }
+      <ScrollView
+        contentContainerStyle={ styles.contentContainer }
+      >
+        {
+          projects.map((item, index) =>
+            <PortfolioItem key={index} project={item} />,
+          )
+        }
 
-          <Button
-            title={'next'}
-            onPress={() => NavigationService.navigate('Experience')}
-          />
-        </View>
+        <Button
+          title={'next'}
+          onPress={() => NavigationService.navigate('Experience')}
+        />
       </ScrollView>
-
     </SafeAreaView >
   )
 }
@@ -43,11 +42,7 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    paddingTop: 5,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 26,
-    maxWidth: 600,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
 })
