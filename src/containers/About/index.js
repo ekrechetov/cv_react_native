@@ -1,11 +1,25 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, Text, ScrollView, Dimensions } from 'react-native'
 import { Typography, Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
 import AppBar from '../../components/AppBar'
 
 const About = () => {
+  const screen = Dimensions.get("screen")
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -14,7 +28,9 @@ const About = () => {
         headLineText="About me"
       />
 
-      <View style={styles.content}>
+      <ScrollView
+        contentContainerStyle={[ styles.contentContainer, dimensions.screen.height > 400 && { flex: 1 } ]}
+      >
         <Text style={Typography.text}>
           Frontend developer, focused on creating interactive, responsive and
           fast web and mobile applications with high usability. Developed several practical
@@ -28,7 +44,7 @@ const About = () => {
           title={'next'}
           onPress={() => NavigationService.navigate('HardSkills')}
         />
-      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
@@ -38,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    ...Styles.content,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
 })

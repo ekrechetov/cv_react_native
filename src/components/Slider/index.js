@@ -41,7 +41,7 @@ const Slider = ({ screens }) => {
   }, [])
 
   return (
-    <View style={styles.container}>
+    <View>
       <ScrollView
         ref={scrollRef}
         horizontal
@@ -62,7 +62,6 @@ const Slider = ({ screens }) => {
           ))
           }
         </View>
-
       </View>
     </View>
   )
@@ -70,9 +69,6 @@ const Slider = ({ screens }) => {
 export default Slider
 
 const styles = StyleSheet.create({
-  container: {
-    // backgroundColor: 'gray',
-  },
   scrollView: {
     flexGrow: 0,
   },

@@ -1,6 +1,6 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, View, TouchableOpacity, Linking } from 'react-native'
-import { Typography, Styles } from '../../styles'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions, Linking } from 'react-native'
+import { Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
 import ASSETS from '../../assets'
@@ -8,6 +8,21 @@ import AppBar from '../../components/AppBar'
 import Contact from '../../components/Contact'
 
 const Contacts = () => {
+
+  const screen = Dimensions.get("screen")
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
 
   const linkTo = (url) => {
     Linking.openURL(url).catch((error) => console.error('An error occurred', error))
@@ -19,7 +34,9 @@ const Contacts = () => {
       <AppBar
         headLineText="Contacts"
       />
-      <View style={styles.content}>
+      <ScrollView
+        contentContainerStyle={[ styles.contentContainer, dimensions.screen.height > 430 && { flex: 1 } ]}
+      >
         <View>
           <Contact
             img={ASSETS.phone}
@@ -52,7 +69,7 @@ const Contacts = () => {
           title={'back to the beginning'}
           onPress={() => NavigationService.navigate('Greeting')}
         />
-      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
@@ -62,16 +79,7 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    ...Styles.content,
-  },
-  title: {
-    ...Typography.text,
-    fontWeight: '700',
-    marginVertical: 5,
-    fontSize: 20,
-  },
-  text: {
-    ...Typography.text,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
 })

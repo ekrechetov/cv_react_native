@@ -1,6 +1,6 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { Colors, Typography, Styles } from '../../styles'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, Text, View, Dimensions } from 'react-native'
+import { Typography, Styles } from '../../styles'
 import Avatar from '../../components/Avatar'
 import Button from '../../components/Button'
 import Slider from '../../components/Slider'
@@ -18,35 +18,48 @@ const Greeting = ({ navigation }) => {
     },
     {
       key: 3,
-      title: 'React',
+      title: 'React & React-Native',
     },
     {
       key: 4,
-      title: 'React-Native',
-    },
-    {
-      key: 5,
       title: 'React Hooks',
     },
     {
-      key: 6,
-      title: 'Redux, Context',
+      key: 5,
+      title: 'Redux, React Context',
     },
     {
-      key: 7,
+      key: 6,
       title: 'Npm, Git, Scrum',
     },
   ]
+
+  const screen = Dimensions.get('screen')
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
+
+  let title
+  dimensions.screen.height < 450 ?
+    title = 'CV like react-native app' :
+    title = 'C V \n like react-native app'
 
   return (
     <SafeAreaView style={styles.container}>
 
       <View style={{ alignItems: 'center' }}>
-        <Text style={{ ...Typography.title, marginBottom: 10 }}>
-          C V
-        </Text>
-        <Text style={{ ...Typography.subTitle, color: 'white' }}>
-          like react-native app
+        <Text style={{ ...Typography.title, marginBottom: 10, textAlign: 'center' }}>
+          {title}
         </Text>
       </View>
 
@@ -54,7 +67,7 @@ const Greeting = ({ navigation }) => {
 
       <View style={{ alignItems: 'center' }}>
 
-        <Text style={{ ...Typography.title, marginBottom: 10, color: 'black' }}>
+        <Text style={{ ...Typography.title, marginBottom: 6, color: 'black' }}>
           Yevhenii Krechetov
         </Text>
 
@@ -63,15 +76,16 @@ const Greeting = ({ navigation }) => {
         </Text>
       </View>
 
-      <Slider screens={ screens }/>
+      {dimensions.screen.height > 430 &&
+        <Slider screens={ screens }/>
+      }
 
-      <View style={{ paddingHorizontal: 20, width: '100%', maxWidth: 600 }}>
+      <View style={styles.btnContainer}>
         <Button
           title={'start review'}
           onPress={() => navigation.navigate('About')}
         />
       </View>
-
     </SafeAreaView >
   )
 }
@@ -81,7 +95,11 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
     justifyContent: 'space-between',
-    paddingTop: 36,
-    paddingBottom: 26,
+    paddingTop: 26,
+  },
+  btnContainer: {
+    width: '100%',
+    alignItems: 'center',
+    paddingHorizontal: 20,
   },
 })

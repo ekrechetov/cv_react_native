@@ -1,5 +1,5 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native'
 import { Typography, Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
@@ -7,13 +7,30 @@ import AppBar from '../../components/AppBar'
 
 const SoftSkills = () => {
 
+  const screen = Dimensions.get("screen")
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
+
   return (
     <SafeAreaView style={styles.container}>
 
       <AppBar
         headLineText="Soft Skills"
       />
-      <View style={styles.content}>
+      <ScrollView
+        contentContainerStyle={[ styles.contentContainer, dimensions.screen.height > 430 && { flex: 1 } ]}
+      >
         <View>
           <Text style={Typography.text}>
             - Communicative, problem solver (closely collaborated with the team to maintain workflow,  solve actual tasks)
@@ -37,14 +54,20 @@ const SoftSkills = () => {
             LANGUAGES:
           </Text>
           <Text style={styles.text}>
-            English (pre intermediate), Ukrainian, Russian
+           - English (Pre-Intermediate)
+          </Text>
+          <Text style={styles.text}>
+            - Ukrainian
+          </Text>
+          <Text style={styles.text}>
+            - Russian
           </Text>
         </View>
         <Button
           title={'next'}
           onPress={() => NavigationService.navigate('Contacts')}
         />
-      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
@@ -53,15 +76,14 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    ...Styles.content,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
   title: {
     ...Typography.text,
     fontWeight: '700',
-    fontSize: 20,
-    width: '100%',
     marginTop: 10,
+    fontSize: 20,
   },
   text: {
     ...Typography.text,

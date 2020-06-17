@@ -22,7 +22,7 @@ export const menuItems = [
   {
     id: 5,
     text: 'Experience',
-    routeName:'Portfolio',
+    routeName:'Experience',
   },
   {
     id: 6,

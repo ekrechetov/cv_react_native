@@ -12,7 +12,7 @@ export const projects = [
   {
     id: 2,
     title: 'CV like React-Native App:',
-    deployLink: 'https://expo.io/--/to-exp/exp%3A%2F%2F192.168.31.58%3A19000',
+    deployLink: 'https://expo.io/@ekrechetov/CV',
     source: ASSETS.cv,
     text: 'Developed  mobile application using React-Native. Git repository:',
     gitLink: 'https://github.com/ekrechetov/cv_react_native',

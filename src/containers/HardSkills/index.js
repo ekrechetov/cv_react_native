@@ -1,5 +1,5 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions } from 'react-native'
 import { Typography, Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
@@ -7,13 +7,31 @@ import AppBar from '../../components/AppBar'
 
 const HardSkills = () => {
 
+  const screen = Dimensions.get("screen")
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
+
   return (
     <SafeAreaView style={styles.container}>
 
       <AppBar
         headLineText="Technical skills"
       />
-      <View style={styles.content}>
+
+      <ScrollView
+        contentContainerStyle={[ styles.contentContainer, dimensions.screen.height > 430 && { flex: 1 } ]}
+      >
         <View>
           <Text style={Typography.text}>
             - Mobile application development
@@ -59,17 +77,17 @@ const HardSkills = () => {
           title={'next'}
           onPress={() => NavigationService.navigate('Portfolio')}
         />
-      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
+export default HardSkills
 
 const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    ...Styles.content,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
 })
-export default HardSkills

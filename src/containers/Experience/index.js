@@ -1,5 +1,5 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, View, Text, ScrollView, Dimensions } from 'react-native'
 import { Typography, Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
@@ -7,13 +7,30 @@ import AppBar from '../../components/AppBar'
 
 const Experience = () => {
 
+  const screen = Dimensions.get("screen")
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
+
   return (
     <SafeAreaView style={styles.container}>
 
       <AppBar
         headLineText="Experience"
       />
-      <View style={styles.content}>
+      <ScrollView
+        contentContainerStyle={[ styles.contentContainer, dimensions.screen.height > 430 && { flex: 1 } ]}
+      >
         <View>
 
           <Text style={styles.title}>
@@ -35,7 +52,7 @@ const Experience = () => {
           title={'next'}
           onPress={() => NavigationService.navigate('Education')}
         />
-      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
@@ -45,8 +62,8 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    ...Styles.content,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
   title: {
     ...Typography.text,

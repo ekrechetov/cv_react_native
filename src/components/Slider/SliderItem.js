@@ -11,6 +11,8 @@ const SliderItem = ({ item }) => {
   )
 }
 
+export default SliderItem
+
 const styles = StyleSheet.create({
   itemContainer: {
     width: Dimensions.get('window').width,
@@ -19,9 +21,5 @@ const styles = StyleSheet.create({
   },
   title: {
     ...Typography.title,
-    fontSize: 25,
-    textAlign: 'center',
   },
 })
-
-export default SliderItem

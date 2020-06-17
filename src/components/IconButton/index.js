@@ -19,6 +19,7 @@ const IconButton = (props) => {
     </TouchableOpacity>
   )
 }
+export default IconButton
 
 const styles = StyleSheet.create({
   container: {
@@ -31,5 +32,3 @@ const styles = StyleSheet.create({
     borderRadius: 17,
   },
 })
-
-export default IconButton

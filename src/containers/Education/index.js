@@ -1,11 +1,26 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, ScrollView, View, StyleSheet, Text, Dimensions } from 'react-native'
 import { Typography, Styles } from '../../styles'
 import Button from '../../components/Button'
 import NavigationService from '../../navigation/NavigationService'
 import AppBar from '../../components/AppBar'
 
 const Education = () => {
+
+  const screen = Dimensions.get("screen")
+
+  const [ dimensions, setDimensions ] = useState({ screen })
+
+  const onChange = ({ screen }) => {
+    setDimensions({ screen })
+  }
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange)
+    return () => {
+      Dimensions.removeEventListener("change", onChange)
+    }
+  }, [ dimensions ])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -14,7 +29,9 @@ const Education = () => {
         headLineText="Education"
       />
 
-      <View style={styles.content}>
+      <ScrollView
+        contentContainerStyle={[ styles.contentContainer, dimensions.screen.height > 430 && { flex: 1 } ]}
+      >
         <View>
           <Text style={styles.title}>
             - DAN.IT Education, Kyiv
@@ -48,7 +65,7 @@ const Education = () => {
           title={'next'}
           onPress={() => NavigationService.navigate('SoftSkills')}
         />
-      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
@@ -58,19 +75,17 @@ const styles = StyleSheet.create({
   container: {
     ...Styles.container,
   },
-  content: {
-    ...Styles.content,
+  contentContainer: {
+    ...Styles.contentContainer,
   },
   title: {
     ...Typography.text,
     fontWeight: '700',
     marginVertical: 5,
     fontSize: 20,
-    width: '100%',
   },
   text: {
     marginBottom: 15,
     ...Typography.text,
-    width: '100%',
   },
 })
