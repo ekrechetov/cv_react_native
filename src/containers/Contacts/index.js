@@ -6,6 +6,7 @@ import NavigationService from '../../navigation/NavigationService'
 import ASSETS from '../../assets'
 import AppBar from '../../components/AppBar'
 import Contact from '../../components/Contact'
+import { sendEmail } from '../../helpers/sendEmail'
 
 const Contacts = () => {
 
@@ -42,10 +43,18 @@ const Contacts = () => {
             img={ASSETS.phone}
             description={'+38 050 310 32 39'}
           />
-          <Contact
-            img={ASSETS.email}
-            description={'jenya-99@ukr.net'}
-          />
+          <TouchableOpacity
+            onPress={() => sendEmail(
+            ).then(() => {
+              // console.log('Email message successful provided to device mail')
+            })}
+          >
+            <Contact
+              img={ASSETS.email}
+              description={'jenya-99@ukr.net'}
+              linked={true}
+            />
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => linkTo('https://github.com/ekrechetov')}>
             <Contact
               img={ASSETS.git}
