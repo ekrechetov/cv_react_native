@@ -7,7 +7,7 @@
       "android",
       "web"
     ],
-    "version": "2.0.0",
+    "version": "4.0.0",
     "orientation": "default",
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,14 +18,18 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kiiga89mf.krechetov",
-      "buildNumber": "2.0.0"
+      "buildNumber": "4.0.0"
     },
     "android": {
       "package": "com.kiiga89mf.krechetov",
-      "versionCode": 2
+      "versionCode": 4
     },
     "description": "CV like React-Native App",
     "icon": "./src/assets/icons/ic_cv.png",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "cover"
+    },
     "githubUrl": "https://github.com/ekrechetov/cv_react_native",
     "privacy": "public"
   }
