@@ -7,7 +7,7 @@
       "android",
       "web"
     ],
-    "version": "4.0.0",
+    "version": "5.0.0",
     "orientation": "default",
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,11 +18,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kiiga89mf.krechetov",
-      "buildNumber": "4.0.0"
+      "buildNumber": "5.0.0"
     },
     "android": {
       "package": "com.kiiga89mf.krechetov",
-      "versionCode": 4
+      "versionCode": 5
     },
     "description": "CV like React-Native App",
     "icon": "./src/assets/icons/ic_cv.png",

@@ -54,7 +54,7 @@ const SoftSkills = () => {
             LANGUAGES:
           </Text>
           <Text style={styles.text}>
-           - English (Pre-Intermediate)
+           - English (pre-Intermediate)
           </Text>
           <Text style={styles.text}>
             - Ukrainian
